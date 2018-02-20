@@ -13,3 +13,18 @@ PS1+=" -> \[${reset}\]"
 export PS1
 
 #-------- Command line set up: END ------------#
+
+#--------      Refresh git        ---------#
+function refresh_git(){
+ currwd=`pwd`;
+ for dir in `find ./ -type d`
+ do
+         echo Refreshing $dir;
+         cd $dir;
+         git pull origin master;
+         cd $currwd;
+ done
+}
+
+alias refresh_git=refresh_git
+
