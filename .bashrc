@@ -14,8 +14,8 @@ export PS1
 
 
 #FREELING INstalls
-export FREELINGDIR=/Users/jvsingh/3rdParty/installs/freeling/bin
-export PATH=${PATH}:$FREELINGDIR
+#export FREELINGDIR=/Users/jvsingh/3rdParty/installs/freeling/bin
+#export PATH=${PATH}:$FREELINGDIR
 
 
 #-------- Command line set up: END ------------#
@@ -36,10 +36,17 @@ spaceToUnderscores()
 }
 
 
-refresh_git_fn()
-{
-   currdir=`pwd`;
-   for dir in `find ./ -type d -maxdepth 3  |grep -v ".git"`; do echo refreshing $dir; cd $dir; git pull origin master 2>/dev/null; cd $currdir;  done
+function refresh_git(){
+ currwd=`pwd`; 
+ for dir in `find ./ -type d`
+ do
+         echo Refreshing $dir; 
+         cd $dir; 
+         git pull origin master; 
+         cd $currwd; 
+ done
 }
-alias refreshgit=refresh_git_fn
-alias gitrefresh=refresh_git_fn
+
+alias refresh_git=refresh_git
+alias coursera="cd $HOME/work/coursera"
+
