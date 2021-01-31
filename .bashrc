@@ -1,3 +1,37 @@
+### BEGIN: Give HomeBrew installed packages priority
+
+# Give HomeBrew installed packages priority
+HB_PATH="/usr/local/bin:/usr/local/sbin"
+# brew install node
+HB_PATH="$HB_PATH:/usr/local/share/npm/bin"
+
+### END ###
+
+### BEGIN: add custom apps to path ###
+
+# Add sublime to the terminal
+# https://gist.github.com/scottvrosenthal/10736533
+# allows subl --help
+APP_PATH="$APP_PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin"
+
+### END ###
+
+### BEGIN: Build custom PATH
+
+PATH="$HB_PATH:$APP_PATH:$PATH"
+
+### END ###
+
+### BEGIN: rbenv ###
+
+export RBENV_ROOT=/usr/local/var/rbenv
+
+# Load rbenv into a shell session *as a function*
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+### END ###
+
+
 #-------- Command line set up: START ------------#
 orange=$(tput setaf 166);
 yellow=$(tput setaf 228);
@@ -12,13 +46,9 @@ PS1+="\[${bold}${green}\]\w "
 PS1+=" -> \[${reset}\]"
 export PS1
 
-
-#FREELING INstalls
-#export FREELINGDIR=/Users/jvsingh/3rdParty/installs/freeling/bin
-#export PATH=${PATH}:$FREELINGDIR
-
-
 #-------- Command line set up: END ------------#
+
+
 #JAVA_HOME as suggested in spark setup
 export JAVA_HOME=$(/usr/libexec/java_home)
 
@@ -31,31 +61,14 @@ export PATH=$PATH:$HOME/spark/bin
 
 #kaggle related commands
 export PATH=$PATH:$HOME/.local/bin
-
-#Convert spaces in filenames to underscores in current directory
-
-spaceToUnderscores()
-{
-        for file in `ls |sed -e 's/ /~/g'`
-        do
-                echo $file;
-                fileOrig=`echo $file | sed -e 's/\~/ /g'`
-                fileNew=`echo $file | sed -e 's/\~/_/g'`
-                echo $fileOrig
-                echo Moving  "$fileOrig" to $fileNew
-                mv "$fileOrig" $fileNew
-        done
-}
-
-
 function refresh_git(){
  currwd=`pwd`; 
  for dir in `find ./ -type d`
  do
-         echo Refreshing $dir; 
+	 echo Refreshing $dir; 
          cd $dir; 
-         git pull origin master; 
-         cd $currwd; 
+	 git pull origin master; 
+	 cd $currwd; 
  done
 }
 
@@ -73,5 +86,16 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl@1.1/include"
 #export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+#--- Function to rename molis files, whatever to ND-
+function rename_to_nd(){
+ for file in `ls |grep -v Icon|grep -v "ND-"`; 
+ do 
+    # New file name
+    y="ND-"$file; 
+    echo renaming $file to $y; 
+    mv $file $y; 
+ done
+}
 
 
