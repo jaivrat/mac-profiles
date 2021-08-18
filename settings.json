@@ -1,1 +1,5 @@
-
+{
+    "python.linting.cwd": "/Users/jvsingh/work/stanford/XCS229i-PS4/src-spam",
+    "python.testing.cwd": "/Users/jvsingh/work/stanford/XCS229i-PS4/src-spam",
+    "terminal.integrated.cwd": "/Users/jvsingh/work/stanford/XCS229i-PS4/src-spam"
+}
