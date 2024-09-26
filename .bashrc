@@ -79,7 +79,15 @@ alias q="/Users/jvsingh/q/m64/q"
 alias developer='source /Users/jvsingh/work/developer-1.3.0-osx/y/config/config.profile; q /Users/jvsingh/work/developer-1.3.0-osx/y/launcher.q_'
 alias qstudio='java -jar /Users/jvsingh/work/qstudio/qstudio.jar'
 alias pyq="source ${HOME}/pyq2/bin/activate"
-
+alias cdcurr="cd work/github/python_codes/ml-python/ml_tut_python_engineer/"
+alias activate_XCS229i="conda activate XCS229i"
+alias activate_nlu_XCS224U_nlu="conda activate nlu"
+alias activate_hands_on="conda activate handson_ml_tf2"
+alias cdnlu="cd /Users/jvsingh/work/stanford/XCS224U_NLU"
+alias cdproj="cd /Users/jvsingh/work/stanford/XCS229ii-ML-Strategy-RL/Project/xcs229ii-project"
+alias activate_nlp="conda activate XCS224N"
+alias cdnlp="cd /Users/jvsingh/work/stanford/XCS224N-NLP/gitrepo"
+alias cdpython="cd ~/work/github/python_codes"
 
 #OpenSSL:
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
