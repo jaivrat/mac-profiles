@@ -98,4 +98,19 @@ function rename_to_nd(){
  done
 }
 
+function conda_help(){
+  echo To remove env: conda remove --name tutorial --all
+  echo To create end: conda env create --file tutorial.yaml 
+  echo "    Have a look at tutorial.yaml in /Users/jvsingh/work/stanford/XCS229ii-ML-Strategy-RL/a_tutorial"
+  echo "To activate" : conda activate tutorial
+  echo "To deactivate" : conda deactivate
+}
+
+
+# Syntax highligtinh as per https://ole.michelsen.dk/blog/syntax-highlight-files-macos-terminal-less/
+# First : brew install source-highlight
+# Then below:
+LESSPIPE=`which src-hilite-lesspipe.sh`
+export LESSOPEN="| ${LESSPIPE} %s"
+export LESS=' -R -X -F '
 
